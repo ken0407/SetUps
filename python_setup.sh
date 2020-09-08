@@ -1,0 +1,11 @@
+sudo apt update;
+sudo apt install build-essential;
+sudo apt install libreadline-dev libncursesw5-dev libssl-dev libsqlite3-dev libgdbm-dev libbz2-dev liblzma-dev zlib1g-dev uuid-dev libffi-dev libdb-dev;
+wget https://www.python.org/ftp/python/$1/Python-$1.tgz;
+tar xzf Python-$1.tgz;
+cd Python-$1;
+./configure --enable-shared;
+make;
+sudo make install;
+sudo sh -c "echo '/usr/local/lib' > /etc/ld.so.conf.d/custom_python3.conf";
+sudo ldconfig;
